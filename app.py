@@ -1,3 +1,4 @@
+import os
 from flask import Flask,jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -9,7 +10,7 @@ CORS(app)
 db = SQLAlchemy(app)
 
 app.secret_key = 'secrect'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.eviron.get('DATABASE_URL')
 
 mirgrate = Migrate(app, db)
 
